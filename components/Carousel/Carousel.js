@@ -17,3 +17,46 @@
     <div class="right-button"> > </div>
   </div>
 */
+
+const CardCarousel = cur => {
+  const carousel = document.createElement("div");
+  const lftBtn = document.createElement("div");
+  const img = document.createElement("img");
+  const rtBtn = document.createElement("div");
+
+  carousel.classList.add("carousel");
+  lftBtn.classList.add("left-button");
+  img.src = `./assets/carousel/${imgArr[cur]}.jpeg`;
+  rtBtn.classList.add("right-button");
+
+  carousel.appendChild(lftBtn);
+  carousel.appendChild(img);
+  carousel.appendChild(rtBtn);
+
+  lftBtn.addEventListener("click", () => {
+    cur -= 1;
+    if (cur < 0) {
+      cur = 3;
+    }
+    console.log(imgArr[cur]);
+    return img.src = `./assets/carousel/${imgArr[cur]}.jpeg`;;
+  });
+
+  rtBtn.addEventListener("click", () => {
+    cur += 1;
+    if (cur > 3) {
+      cur = 0;
+    }
+    console.log(imgArr[cur]);
+    return img.src = `./assets/carousel/${imgArr[cur]}.jpeg`;;
+  });
+
+  return carousel;
+};
+
+const imgArr = ["mountains", "computer", "trees", "turntable"];
+
+const carouselCont = document.querySelector(".carousel-container");
+const cur = 0;
+console.log(cur);
+carouselCont.appendChild(CardCarousel(cur));

@@ -34,7 +34,6 @@ axios.get("https://lambda-times-backend.herokuapp.com/articles").then(res => {
     ...jqueryArticles,
     ...nodeArticles
   ];
-  console.log(artArray);
 
   //Select .cards-container
   const cardsCont = document.querySelector(".cards-container");
@@ -70,6 +69,5 @@ const articleComp = data => {
   headline.textContent = data.headline;
   authName.textContent = data.authorName;
 
-  console.log(card);
   return card;
 };
